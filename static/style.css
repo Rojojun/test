@@ -1,15 +1,140 @@
-.mytitle {
-            width: 100%;
-            height: 250px;
-
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('1650607870914.jpg');
-            background-position: center;
-            background-size: cover;
-
-            color: white;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+:root {
+    --bg-gradient-gray: linear-gradient(to right, #283048, #859398);
+    --bg-gradient-pink: linear-gradient(to right, #dae2f8, #d6a4a4);;
+    --bg-gradient-yellow:linear-gradient(to right, #e1eec3, #f05053);
 }
+
+
+* > * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Gowun Batang', serif;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-initial {
+    flex: 0 1 auto;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.py-2 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.py-5 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.py-10 {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+}
+
+.px-2 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.px-5 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.px-10 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.mx-auto {
+    margin: auto;
+}
+
+.container {
+    width: 100%;
+}
+
+.container-fluid {
+    width: 98%;
+}
+
+.btn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-primary{
+    padding: 0.8rem 0.2rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.btn-shadow{
+    box-shadow: 0px 0px 50px 0px rgb(0 0 0 / 10%);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: gray;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: right !important;
+}
+
+.btnContainer > .btn {
+    margin-left: 10px;
+}
+
+.mytitle {
+    width: 100%;
+    height: 250px;
+
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('1650607870914.jpg');
+    background-position: center;
+    background-size: cover;
+
+    color: white;
+}
+
+.search {
+    width: 60%;
+}
+
+.mycard {
+    margin: 20px auto 0px auto;
+    width: 95%;
+    max-width: 1200px;
+}
+
+.mycards > .card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
