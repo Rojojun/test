@@ -1,0 +1,31 @@
+.page {
+    background-color: seashell;
+    background-image: url("");
+    background-size: cover;
+    background-position: center;
+}
+
+.sign_up {
+    margin: 50px;
+    text-align: center;
+}
+
+.idInput {
+    background-color: beige;
+    height: 23px;
+}
+
+.pwInput {
+    background-color: beige;
+    height: 23px;
+}
+
+.confirmPW {
+    background-color: beige;
+    height: 23px;
+}
+
+.mybtn {
+    width: 100px;
+    height: 35px;
+}

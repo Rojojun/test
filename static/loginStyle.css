@@ -1,0 +1,29 @@
+.loginPage {
+    background-color: seashell;
+}
+.login_box {
+    text-align: center;
+    margin: 50px;
+}
+
+.input_id {
+    width: 400px;
+    height: 30px;
+    background-color: beige;
+}
+
+.input_pw {
+    width: 400px;
+    height: 30px;
+    background-color: beige;
+}
+
+.save_id {
+    margin-right: 130px;
+}
+
+.loginBtn {
+    background-color: beige;
+    width: 400px;
+    height: 35px;
+}
