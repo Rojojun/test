@@ -1,3 +1,21 @@
+* > * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Gowun Batang', serif;
+}
+
+.mytitle {
+    width: 100%;
+    height: 550px;
+
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('1650607870914.jpg');
+    background-position: center;
+    background-size: cover;
+
+    color: white;
+}
+
 .loginPage {
     background-color: seashell;
 }
@@ -26,4 +44,9 @@
     background-color: beige;
     width: 400px;
     height: 35px;
+}
+
+.login_title {
+    margin-top: 50%;
+    display: block;
 }

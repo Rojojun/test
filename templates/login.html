@@ -5,9 +5,19 @@
     <title>LOG IN</title>
     <link rel="stylesheet" href="../static/loginStyle.css">
 </head>
+<!--Header-->
+<header class="container-fluid mytitle">
+    <div class="mytitle">
+        <div class="py-2 px-5 btnContainer">
+            <button class="btn btn-primary" onclick="location.href='/sign_up'">회원가입</button>
+            <button class="btn btn-primary" onclick="location.href='/login'">로그인</button>
+        </div>
+        <h1 class="login_title">Login Page</h1>
+    </div>
+</header>
+<!--login_form-->
 <body class="loginPage">
     <div class="login_box">
-        <h1>LOG IN</h1>
         <input class="input_id" placeholder="ID">
         <p></p>
         <input class="input_pw" placeholder="PASSWORD">
