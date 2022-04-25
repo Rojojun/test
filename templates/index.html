@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+    <script src="../static/app.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,32 +30,34 @@
 <header class="container-fluid mytitle">
     <div class="mytitle">
         <div class="py-2 px-5 btnContainer">
-            <button class="btn btn-primary">회원가입</button>
-            <button class="btn btn-primary">로그인</button>
+            <button class="btn btn-primary" onclick="location.href='/sign_up'">회원가입</button>
+            <button class="btn btn-primary" onclick="location.href='/login'">로그인</button>
         </div>
         <div class="search input-group mb-3 py-5 mx-auto">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-                   aria-describedby="button-addon2">
-            <button class="btn btn-outline-light" type="button" id="button-addon2">
+            <input type="text" class="form form-control" placeholder="음식점을 검색해 주세요" aria-label="Recipient's username"
+                   aria-describedby="button-addon2" id="search">
+            <button class="btn btn-outline-light" type="button" id="button-addon2" onclick="search_result()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
                      viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg>
             </button>
-
         </div>
+        <button class="btn btn-light add-btn">맛집 등록하기</button>
     </div>
 </header>
 
 <!--location-->
 <div class="flex px-10 py-3">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-</svg> &nbsp;위치 정보
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+         viewBox="0 0 16 16">
+        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    </svg> <span id="current_location">위치 정보</span>
 </div>
-
+<!--Current Upload-->
 <div class="mycards py-2 px-5">
+    <h1>최신 인기 맛집</h1>
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="col">
             <div class="card">
@@ -95,14 +97,57 @@
                 <img src="https://search.pstatic.net/common/?autoRotate=true&amp;type=w560_sharpen&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201110_26%2F16050108771066KwM3_JPEG%2F4maaS0xByFiaHM2ixIaCjuEP.jpg
 " class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">호맥</h5>
-                    <p class="stars">⭐4.59/5</p>
-                    <p class="location">부산 금정구 중앙대로1959번길 55 호맥</p>
+                    <h5 class="card-title" id="title">호맥</h5>
+                    <p class="stars" id="star">⭐4.59/5</p>
+                    <p class="location" id="location">부산 금정구 중앙대로1959번길 55 호맥</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<!--Editor Area-->
+<div class="mycards py-2 px-5">
+    <h1>에디터 추천 맛집</h1>
+</div>
+<div class="mycard row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+        <div class="card">
+            <img src="https://media.istockphoto.com/photos/food-backgrounds-table-filled-with-large-variety-of-food-picture-id1155240408?k=20&m=1155240408&s=612x612&w=0&h=Zvr3TwVQ-wlfBnvGrgJCtv-_P_LUcIK301rCygnirbk="
+                 class="card-img-top" alt="...">
+            <h3>test</h3>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img src="https://media.istockphoto.com/photos/food-backgrounds-table-filled-with-large-variety-of-food-picture-id1155240408?k=20&m=1155240408&s=612x612&w=0&h=Zvr3TwVQ-wlfBnvGrgJCtv-_P_LUcIK301rCygnirbk="
+                 class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
