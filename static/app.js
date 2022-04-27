@@ -1,11 +1,3 @@
-/*window.onload(navigator.geolocation.getCurrentPosition((position) => {
-    doSomething(position.coords.latitude, position.coords.longitude);
-})
-)*/
-
-
-
-
 $(function(){
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(pos){
@@ -44,4 +36,12 @@ function search_result() {
     location.href="https://map.naver.com/v5/search/" + result
 
     result.empty()
+}
+
+function open_box() {
+    $('#mypost').show()
+}
+
+function close_box() {
+    $('#mypost').hide()
 }

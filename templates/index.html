@@ -43,7 +43,7 @@
                 </svg>
             </button>
         </div>
-        <button class="btn btn-light add-btn">맛집 등록하기</button>
+        <button class="btn btn-light add-btn" onclick="open_box()">맛집 등록하기</button>
     </div>
 </header>
 
@@ -54,6 +54,32 @@
         <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
         <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
     </svg> <span id="current_location">위치 정보</span>
+</div>
+<!--Add favorite restaurant-->
+<div class="mypost" id="mypost">
+    <div class="form-floating mb-3">
+        <input id="url" class="form-control" placeholder="Input a URL">
+        <label>맛집 URL</label>
+    </div>
+    <div class="input-group mb-3">
+        <label class="input-group-text">별점</label>
+        <select class="form-select" id="star">
+            <option selected>-- 선택하기 --</option>
+            <option value="1">⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
+    </div>
+    <div class="form-floating mb-3">
+        <input id="writer" class="form-control" placeholder="Writer">
+        <label>비회원 작성자</label>
+    </div>
+    <div class="mybtns">
+        <button onclick="posting()" type="button" class="btn btn-outline-dark">기록하기</button>
+        <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+    </div>
 </div>
 <!--Current Upload-->
 <div class="mycards py-2 px-5">
@@ -100,7 +126,7 @@
 " class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title" id="title">호맥</h5>
-                    <p class="stars" id="star">⭐4.59/5</p>
+                    <p class="stars" id="stars">⭐4.59/5</p>
                     <p class="location" id="location">부산 금정구 중앙대로1959번길 55 호맥</p>
                 </div>
             </div>
