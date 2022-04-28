@@ -27,13 +27,15 @@
 
 <body>
 <!--Header-->
+
 <header class="container-fluid mytitle">
     <div class="mytitle">
         <div class="py-2 px-5 btnContainer">
             <button class="btn btn-primary" onclick="location.href='/sign_up'">회원가입</button>
             <button class="btn btn-primary" onclick="location.href='/login'">로그인</button>
         </div>
-        <div class="search input-group mb-3 py-5 mx-auto">
+        <!--Add favorite restaurant-->
+        <div class="search input-group mb-3 py-2 mx-auto">
             <input type="text" class="form form-control" placeholder="음식점을 검색해 주세요" aria-label="Recipient's username"
                    aria-describedby="button-addon2" id="search">
             <button class="btn btn-outline-light" type="button" id="button-addon2" onclick="search_result()">
@@ -43,9 +45,36 @@
                 </svg>
             </button>
         </div>
-        <button class="btn btn-light add-btn" onclick="open_box()">맛집 등록하기</button>
+        <button class="btn btn-light add-btn" id="add-btn">맛집 등록하기</button>
+        <div class="mypost px-10 py-10" id="mypost">
+            <div class="form-floating mb-3">
+                <input id="url" class="form-control" placeholder="Input a URL">
+                <label>맛집 URL</label>
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text">별점</label>
+                <select class="form-select" id="star">
+                    <option selected>-- 선택하기 --</option>
+                    <option value="1">⭐</option>
+                    <option value="2">⭐⭐</option>
+                    <option value="3">⭐⭐⭐</option>
+                    <option value="4">⭐⭐⭐⭐</option>
+                    <option value="5">⭐⭐⭐⭐⭐</option>
+                </select>
+            </div>
+            <div class="form-floating mb-3">
+                <input id="writer" class="form-control" placeholder="Writer">
+                <label>비회원 작성자</label>
+            </div>
+            <div class="mybtns">
+                <button onclick="posting()" type="button" class="btn btn-outline-dark">기록하기</button>
+                <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+            </div>
+        </div>
     </div>
+
 </header>
+
 
 <!--location-->
 <div class="flex px-10 py-3">
@@ -53,34 +82,10 @@
          viewBox="0 0 16 16">
         <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
         <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-    </svg> <span id="current_location">위치 정보</span>
+    </svg>
+    <span id="current_location" class="px-2">위치 정보</span>
 </div>
-<!--Add favorite restaurant-->
-<div class="mypost" id="mypost">
-    <div class="form-floating mb-3">
-        <input id="url" class="form-control" placeholder="Input a URL">
-        <label>맛집 URL</label>
-    </div>
-    <div class="input-group mb-3">
-        <label class="input-group-text">별점</label>
-        <select class="form-select" id="star">
-            <option selected>-- 선택하기 --</option>
-            <option value="1">⭐</option>
-            <option value="2">⭐⭐</option>
-            <option value="3">⭐⭐⭐</option>
-            <option value="4">⭐⭐⭐⭐</option>
-            <option value="5">⭐⭐⭐⭐⭐</option>
-        </select>
-    </div>
-    <div class="form-floating mb-3">
-        <input id="writer" class="form-control" placeholder="Writer">
-        <label>비회원 작성자</label>
-    </div>
-    <div class="mybtns">
-        <button onclick="posting()" type="button" class="btn btn-outline-dark">기록하기</button>
-        <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
-    </div>
-</div>
+
 <!--Current Upload-->
 <div class="mycards py-2 px-5">
     <h1>최신 인기 맛집</h1>

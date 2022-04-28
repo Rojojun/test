@@ -30,6 +30,26 @@ $(function(){
 
 })
 
+function posting() {
+            let url = $('#url').val();
+            let star = $('#star').val();
+            let writer = $('#writer').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/restaurant',
+                data: {
+                    url_give: url,
+                    star_give: star,
+                    writer_give: writer,
+                },
+                success: function (response) {
+                    alert(response['msg']);
+                    window.location.reload();
+                }
+            });
+        }
+
 function search_result() {
     let result = $('#search').val()
     alert(result)
@@ -38,10 +58,12 @@ function search_result() {
     result.empty()
 }
 
-function open_box() {
-    $('#mypost').show()
-}
 
 function close_box() {
     $('#mypost').hide()
 }
+$("#add-btn").click(() => {
+    $("#mypost").slideToggle();
+})
+
+
