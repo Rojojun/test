@@ -4,9 +4,26 @@ app = Flask(__name__)
 import requests
 from bs4 import BeautifulSoup
 
+from selenium import webdriver
+
 from pymongo import MongoClient
 client = MongoClient('mongodb+srv://minji:0819@Cluster0.vdsdj.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
+
+options = webdriver.ChromeOptions()
+# options.add_argument('headless')
+# options.add_argument('lang=ko_KR')
+# chromedriver_path = "chromedriver"
+driver = webdriver.Chrome(options=options)
+driver.implicitly_wait(3)
+# driver = webdriver.Chrome(os.path.join(os.getcwd(), chromedriver_path), options=options)
+
+driver.get(url='https://map.kakao.com/')
+driver.find_element_by_xpath('//*[@id="search.keyword.query"]').send_keys('신도저리')
+
+
+# driver.find_element_by_xpath()
+
 
 @app.route('/')
 def home():
@@ -25,9 +42,9 @@ def restaurant_post():
     soup = BeautifulSoup(data.text, 'html.parser')
 
     # 여기에 코딩을 해서 meta tag를 먼저 가져와보겠습니다.
-    name = soup.select('#container')
-    image = soup.select_one('# ibu_1')
-    address = soup.select_one('# app-root > div > div > div > div:nth-child(5) > div > div.place_section.no_margin._18vYz > div > ul > li._1M_Iz._1aj6- > div > a > span._2yqUQ')
+    name = soup.select('')
+    # image = soup.select_one('# ibu_1')
+    # address = soup.select_one('# app-root > div > div > div > div:nth-child(5) > div > div.place_section.no_margin._18vYz > div > ul > li._1M_Iz._1aj6- > div > a > span._2yqUQ')
 
     print(name)
     # doc = {
